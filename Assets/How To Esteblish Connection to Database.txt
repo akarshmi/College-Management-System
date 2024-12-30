@@ -1,0 +1,39 @@
+first step to create data base
+create database with name "cmdb"
+create 3 table with name
+"mrd"
+"srd"
+"urd"
+"ura"
+------------------------------------------------------------
+in mrd->>
+uemail varchar (50);		--Primary
+uname varchar (50);
+uphno varchar (10);
+upwd varchar (50)
+------------------------------------------------------------
+in srd->>
+sname varchar(50);
+fname varchar(50);
+mname varchar(50);
+gender varchar(12);
+address varchar(50);
+phno varchar(10);
+emailid varchar(50);
+rid varchar(12);		--Primary
+------------------------------------------------------------
+in urd->>
+uemail varchar (50);		--Primary
+uname varchar (50);
+gender varchar (12)
+uphno varchar (10);
+upwd varchar (50)
+------------------------------------------------------------
+in ura->>
+uemail varchar (50);  --Primary
+uname varchar (50);
+gender varchar (12)
+uphno varchar (10);
+upwd varchar (50)
+
+

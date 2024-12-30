@@ -1,0 +1,105 @@
+search
+
+
+/*  //saerching Operations
+        if (e.getSource().equals(search)) {
+            regidstr = ridt.getText();
+            namestr = namet.getText();
+            try {
+                if (ConnectionProvider.con.isClosed()) {
+                    JOptionPane.showMessageDialog(null, "Connection Failed!");
+                } else {
+                    if (namestr != null && !namestr.isEmpty()) {
+
+                        String namesearch = "SELECT sname, fname, mname, gender, address, phno, emailid, rid FROM srd WHERE sname = ?";
+                        PreparedStatement pstmt1 = null;
+                        ResultSet rs1;
+                        try {
+                            pstmt1 = ConnectionProvider.con.prepareStatement(namesearch);
+                            pstmt1.setString(1, namestr); // Set the parameter at index 1
+                            rs1 = pstmt1.executeQuery();
+
+
+                            DefaultTableModel model1 = new DefaultTableModel();
+                            // Retrieve metadata from ResultSet to set column names for the model
+                            int columnCount = rs1.getMetaData().getColumnCount();
+                            for (int i = 1; i <= columnCount; i++) {
+                                model1.addColumn(rs1.getMetaData().getColumnName(i));
+                            }
+
+                            // Process the retrieved data from the ResultSet
+                            while (rs1.next()) {
+                                Object[] row = new Object[columnCount];
+                                for (int i = 1; i <= columnCount; i++) {
+                                    row[i - 1] = rs1.getObject(i);
+                                }
+                                model1.addRow(row);
+                            }
+                            JTable table = new JTable(model1);
+                            JScrollPane scrollPane = new JScrollPane(table);
+                            scrollPane.setPreferredSize(new Dimension(1200, 400));
+                            frame.getContentPane().removeAll();
+                            frame.getContentPane().add(scrollPane, BorderLayout.CENTER); // Add the scroll pane to the frame
+                            frame.pack();
+                            frame.setLocationRelativeTo(null);
+                            frame.setVisible(true);
+
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+                    } else if (regidstr != null && !regidstr.isEmpty()) {
+                        String ridsearch = "SELECT * FROM srd WHERE rid = ?";
+                        PreparedStatement pstmt2 = null;
+                        ResultSet rs2;
+                        pstmt2 = ConnectionProvider.con.prepareStatement(ridsearch);
+                        pstmt2.setString(1, regidstr);
+                        rs2 = pstmt2.executeQuery();
+
+
+                        DefaultTableModel model1 = new DefaultTableModel();
+
+                        // Retrieve metadata from ResultSet to set column names for the model
+                        int columnCount = rs2.getMetaData().getColumnCount();
+                        for (int i = 1; i <= columnCount; i++) {
+                            model1.addColumn(rs2.getMetaData().getColumnName(i));
+                        }
+
+                        // Process the retrieved data from the ResultSet
+                        while (rs2.next()) {
+
+                            Object[] row = new Object[columnCount];
+                            for (int i = 1; i <= columnCount; i++) {
+                                row[i - 1] = rs2.getObject(i);
+                            }
+                            model1.addRow(row);
+                        }
+                        JTable table = new JTable(model1);
+                        JScrollPane scrollPane = new JScrollPane(table);
+                        scrollPane.setPreferredSize(new Dimension(1200, 400));
+                        frame.getContentPane().removeAll();
+                        frame.getContentPane().add(scrollPane, BorderLayout.CENTER); // Add the scroll pane to the frame
+                        frame.pack();
+                        frame.setLocationRelativeTo(null);
+                        frame.setVisible(true);
+
+
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Field couldn't be Empty!");
+                    }
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }*/
+
+
+//ui design codes
+
+        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        //UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+//        UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//        UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+     //   UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
